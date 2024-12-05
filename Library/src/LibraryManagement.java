@@ -23,7 +23,7 @@ public class LibraryManagement {
             System.out.println("6. View Transaction History");
             System.out.println("7. Exit");
             System.out.println("===========================");
-            System.out.print("Enter your choice: ");
+            System.out.print("Enter your choice: \n");
 
             int choice = scanner.nextInt();
             scanner.nextLine();
@@ -117,7 +117,7 @@ public class LibraryManagement {
                     }
                     break;
                 case 6:
-                	//transaction.displayTransactionHistory();
+                	transaction.displayTransactionHistory();
                     break;
                 case 7:
                     System.out.println("Exiting. Good Bye..");

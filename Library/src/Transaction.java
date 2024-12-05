@@ -3,6 +3,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.io.*;
 
 public class Transaction {
 
@@ -81,5 +82,43 @@ public class Transaction {
     
     
     
+    public void displayTransactionHistory()
+    {
+  	  // Method variables - stringbuilder str as empty string builder
+   	 StringBuilder str = new StringBuilder();
+   	 // Try to locate the file from path. If the file is found, loop through each bite and add it to the stringbuilder str
+   	 try (FileInputStream transactionData = new FileInputStream(new File("transactions.txt")))
+         {
+   		     //integer to store each byte in the txt file
+             int data;
+             // While data is not the last byte, loop and add all data to string
+             while ((data = transactionData.read()) != -1)
+             {
+            	 str.append((char)data); //Adds all the characters into str
+             }
+        	 // Saving str as transaction data string
+             String dataToString = str.toString();
+            // Splitting transactionData toString by new line, saving codes to array
+             String[] transactionsList = dataToString.split("\\r");
+             System.out.println("\n======= Recorded Transactions =======\n");
+             for (String transactions : transactionsList)
+             {
+            	 System.out.println(transactions);
+             }
+         }
+   	 // If try to locate file fails, throw exception
+   	 catch (IOException e) 
+   	 	{
+   		 	System.out.println("IO: Could not locate transactions." + e.getMessage());
+    	}
+   	 
+   	 
+   	 
+   	 
+   	 
+   	 
+   	 
+    }
+  
   
 }

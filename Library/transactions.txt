@@ -1,3 +1,8 @@
 2024-12-05 17:43:31 - Borrowing: Lucas borrowed TestBook
 2024-12-05 17:45:18 - Borrowing: Lucas2 borrowed Git
 2024-12-05 17:45:28 - Returning: Lucas2 returned Git
+2024-12-05 19:57:57 - Borrowing: George borrowed Programming
+2024-12-05 19:58:17 - Borrowing: George borrowed Math
+2024-12-05 19:58:45 - Borrowing: Anne borrowed AI
+2024-12-05 19:59:21 - Returning: George returned Math
+2024-12-05 19:59:33 - Borrowing: Anne borrowed Math

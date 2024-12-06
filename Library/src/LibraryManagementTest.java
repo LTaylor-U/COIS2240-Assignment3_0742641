@@ -1,6 +1,9 @@
 import static org.junit.Assert.*;
-
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Modifier;
 import org.junit.Test;
+
+
 
 public class LibraryManagementTest
 {
@@ -45,6 +48,35 @@ public class LibraryManagementTest
         boolean returnFailure = testTransaction.returnBook(testBook, testMember);
         assertFalse(returnFailure);
     }
+    
+    
+
+    @Test
+    public void testSingletonTransaction() throws Exception
+    {
+    	// return the constructor of the Transaction class
+        Constructor<Transaction> constructor = Transaction.class.getDeclaredConstructor();
+
+        // try to instance a transaction
+        try 
+        {
+        	// Get the constructors modifier
+        	int modifier = constructor.getModifiers();
+        	// Set the constructor to public
+        	constructor.setAccessible(true); 
+        	// Attempt to instantiate a transaction
+            Transaction testTransaction1 = constructor.newInstance();
+            // Verify the constructor's modifier is private
+            assertTrue(Modifier.isPrivate(modifier));
+             
+        } 
+        catch (Exception e)
+        {
+        	fail("Singleton Pattern Directly Instanced");
+        }
+    }
+    
+
     
     @Test
     public void testBookId()

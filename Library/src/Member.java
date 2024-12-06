@@ -1,3 +1,5 @@
+// Lucas Taylor, COIS 2240 - Assignment 3
+
 import java.util.ArrayList;
 import java.util.List;
 

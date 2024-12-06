@@ -1,3 +1,6 @@
+// Lucas Taylor, COIS 2240 - Assignment 3
+
+
 public class Book {
     private int id;
     private String title;

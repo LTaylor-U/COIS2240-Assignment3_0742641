@@ -1,3 +1,7 @@
+// Lucas Taylor, COIS 2240 - Assignment 3
+
+
+
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;

@@ -54,19 +54,28 @@ public class LibraryManagement {
                 	System.out.print("Enter book title: ");
                     String title = scanner.next();   
                     scanner.nextLine();
-                    Book newBook = new Book(id, title);                                      
+                    
+                    try
+                    {
+                    	Book newBook = new Book(id, title); 
                     
                     // If the book was added and validated, print success/failure message
                     if (library.addBook(newBook) == true)
-                    {
-                    	System.out.println("Book added successfully.");
-                    }
+                    	{
+                    		System.out.println("Book added successfully.");
+                    	}
                     else
-                    {
-                    	System.out.println("Book not added.");
+                    	{
+                    		System.out.println("Book not added.");
+                    	}
+
                     }
-                    
+                    catch (Exception e)
+                    	{
+                    		System.out.println(e.getMessage());
+                    	}                    
                     break;
+                    
                 case 3:
                 	System.out.println("\n--- Available Members ---");
                     for (Member member : library.getMembers()) {

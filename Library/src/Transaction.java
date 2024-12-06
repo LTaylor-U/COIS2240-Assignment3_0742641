@@ -40,7 +40,7 @@ public class Transaction {
     }
 
     // Perform the returning of a book
-    public void returnBook(Book book, Member member) {
+    public boolean returnBook(Book book, Member member) {
         if (member.getBorrowedBooks().contains(book)) {
             member.returnBook(book);
             book.returnBook();
@@ -48,8 +48,10 @@ public class Transaction {
             System.out.println(transactionDetails);
             // Call saveTransaction method - feed method variable transactionDetails
             saveTransaction(transactionDetails);
+            return true;
         } else {
             System.out.println("This book was not borrowed by the member.");
+            return false;
         }
     }
 
@@ -111,14 +113,7 @@ public class Transaction {
    	 	{
    		 	System.out.println("IO: Could not locate transactions." + e.getMessage());
     	}
-   	 
-   	 
-   	 
-   	 
-   	 
-   	 
-   	 
+
     }
-  
-  
+
 }

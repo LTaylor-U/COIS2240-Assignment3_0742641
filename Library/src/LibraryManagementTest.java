@@ -5,6 +5,47 @@ import org.junit.Test;
 public class LibraryManagementTest
 {
 
+	private Transaction testTransaction;
+	private Book testBook;
+	private Member testMember;
+
+    @Test
+    public void testBorrowReturn() throws Exception 
+    {
+    	
+    	testTransaction = Transaction.getTransaction();
+  	    testBook = new Book(200, "Book 200");
+  	    testMember = new Member(100, "Member 100");
+    	
+    	
+    	
+    	// Test book is available to start
+	   	assertTrue(testBook.isAvailable());
+	   	
+	    // Borrowing the book - expecting a success
+        boolean borrowTestSuccess = testTransaction.borrowBook(testBook, testMember);
+        // Assertions for borrowing success
+        assertTrue(borrowTestSuccess);
+        //Ensuring the test book is not available still after borrow
+	    assertFalse(testBook.isAvailable());
+	    //Ensuring the member's array list of borrowed books contains the book they just borrowed
+        assertTrue(testMember.getBorrowedBooks().contains(testBook));
+        // Attempting to borrow the book again, expecting book to be unvailable
+        boolean borrowNotAvailable = testTransaction.borrowBook(testBook, testMember);
+        // Ensuring that the member was not able to borrow the same book they already have 
+	    assertFalse(borrowNotAvailable);
+
+        // Return the book
+	    boolean returnTestSuccess = testTransaction.returnBook(testBook, testMember);
+	    assertTrue(returnTestSuccess);
+	    assertTrue(testBook.isAvailable());
+	    assertFalse(testMember.getBorrowedBooks().contains(testBook));
+
+	    // Attempt to return the alreasy returned book again, expecting failure
+        boolean returnFailure = testTransaction.returnBook(testBook, testMember);
+        assertFalse(returnFailure);
+    }
+    
     @Test
     public void testBookId()
     {

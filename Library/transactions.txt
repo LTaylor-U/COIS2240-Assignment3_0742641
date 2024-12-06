@@ -6,3 +6,10 @@
 2024-12-05 19:58:45 - Borrowing: Anne borrowed AI
 2024-12-05 19:59:21 - Returning: George returned Math
 2024-12-05 19:59:33 - Borrowing: Anne borrowed Math
+2024-12-05 21:43:55 - Borrowing: Member 100 borrowed Book 200
+2024-12-05 21:48:36 - Borrowing: Member 100 borrowed Book 200
+2024-12-05 21:48:36 - Returning: Member 100 returned Book 200
+2024-12-05 21:49:29 - Borrowing: Member 100 borrowed Book 200
+2024-12-05 21:49:29 - Returning: Member 100 returned Book 200
+2024-12-05 22:01:39 - Borrowing: Member 100 borrowed Book 200
+2024-12-05 22:01:39 - Returning: Member 100 returned Book 200

@@ -34,24 +34,38 @@ public class LibraryManagement {
                     int id = scanner.nextInt();
                 	System.out.print("Enter member name: ");
                     String name = scanner.next();
-                    
                     scanner.nextLine();
-
                     Member newMember = new Member(id, name);
-                    library.addMember(newMember);
-                    System.out.println("Member added successfully.");
+                                
+                    // If the member was added and validated, print success/failure message
+                    if (library.addMember(newMember) == true)
+                    {
+                    	System.out.println("Member added successfully.");
+                    }
+                    else
+                    {
+                    	System.out.println("member not added.");
+                    }
                     break;
+                    
                 case 2:
                     System.out.print("Enter book ID: ");
                     id = scanner.nextInt();
                 	System.out.print("Enter book title: ");
-                    String title = scanner.next();
-                    
+                    String title = scanner.next();   
                     scanner.nextLine();
-
-                    Book newBook = new Book(id, title);
-                    library.addBook(newBook);
-                    System.out.println("Book added to library successfully.");
+                    Book newBook = new Book(id, title);                                      
+                    
+                    // If the book was added and validated, print success/failure message
+                    if (library.addBook(newBook) == true)
+                    {
+                    	System.out.println("Book added successfully.");
+                    }
+                    else
+                    {
+                    	System.out.println("Book not added.");
+                    }
+                    
                     break;
                 case 3:
                 	System.out.println("\n--- Available Members ---");
